@@ -43,5 +43,10 @@ app.use(shopRouters)
 //     res.sendFile(path.join(__dirname, 'public ', 'index.html'))
 // })
 
+app.use((req, res, next) => {
+    res.status(404)
+    res.end('<h1>404 Error</h1>')
+})
+
 const PORT = process.env.PORT || 5000
 app.listen(PORT, () => console.log(`Server started at port ${PORT}`))
